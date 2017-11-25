@@ -19,7 +19,7 @@ public class AlcoholSummaryAdapter extends RecyclerView.Adapter<AlcoholSummaryAd
 
     @Override
     public void onBindViewHolder(AlcoholSummaryAdapter.ViewHolder holder, int position) {
-
+ 
     }
 
     @Override
