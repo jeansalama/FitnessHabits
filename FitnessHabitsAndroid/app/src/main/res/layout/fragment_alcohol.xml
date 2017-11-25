@@ -42,11 +42,32 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/alcohol_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="140dp"
             android:layout_below="@+id/title_bar"
             android:scrollbars="none">
 
+
         </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/alcohol_recycler">
+
+            <TextView
+                android:id="@+id/others_label"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Autres" />
+
+            <TextView
+                android:id="@+id/others_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="10" />
+        </LinearLayout>
 
     </RelativeLayout>
 
