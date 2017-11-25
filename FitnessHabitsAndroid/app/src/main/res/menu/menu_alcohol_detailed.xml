@@ -4,13 +4,13 @@
 
 
     <item
-        android:id="@+id/edit"
+        android:id="@+id/alcohol_action_edit"
         android:icon="@drawable/ic_edit_black_24dp"
         android:title="Add"
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/add"
+        android:id="@+id/alcohol_action_add"
         android:icon="@drawable/ic_add_black_24dp"
         android:title="Add"
         app:showAsAction="always"/>

@@ -9,7 +9,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.strudelauxpommes.fitnesshabits.R;
+import com.strudelauxpommes.fitnesshabits.data.model.DrinkData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,10 +20,26 @@ import java.util.List;
 
 public class AlcoholDetailedAdapter extends RecyclerView.Adapter<AlcoholDetailedAdapter.ViewHolder> {
 
-    public List<Alcohol> alcoholsList;
+    public List<DrinkData> alcoholsList;
 
-    public AlcoholDetailedAdapter(List<Alcohol> alcoholsList){
+    public AlcoholDetailedAdapter(List<DrinkData> alcoholsList){
+        //this.alcoholsList = alcoholsList;
+        this.alcoholsList = generateDummyDrinkData();
+    }
+
+    public List<DrinkData> generateDummyDrinkData(){
+
+        DrinkData drinkData = new DrinkData( 1, "categoryName", 3, 3, true);
+
+        List<DrinkData> drinkDataList = new ArrayList<>();
+        drinkDataList.add(drinkData);
+
+        return drinkDataList;
+    }
+
+    public void setAlcoholsList(List<DrinkData> alcoholsList) {
         this.alcoholsList = alcoholsList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -38,7 +56,7 @@ public class AlcoholDetailedAdapter extends RecyclerView.Adapter<AlcoholDetailed
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         //get Data
-        Alcohol alcohol = alcoholsList.get(position);
+        DrinkData alcohol = alcoholsList.get(position);
         //Set if favorite
         boolean isFavorite = true; //TODO get true or false from data
         if(isFavorite){
