@@ -1,6 +1,8 @@
 package com.strudelauxpommes.fitnesshabits.alcohol;
 
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.strudelauxpommes.fitnesshabits.FitnessHabitsApplication;
 import com.strudelauxpommes.fitnesshabits.R;
+import com.strudelauxpommes.fitnesshabits.data.model.DrinkData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +28,9 @@ public class AlcoholFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
     private TextView alcoholSummaryTitle;
-    List<Alcohol> alcoholList = new ArrayList<>(); //TODO GET ACTUAL LIST
+    private AlcoholViewModel avm;
+
+
     public AlcoholFragment() {
         // Required empty public constructor
     }
@@ -33,6 +39,11 @@ public class AlcoholFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        avm = ViewModelProviders.of(this).get(AlcoholViewModel.class);
+        avm.init(FitnessHabitsApplication.application.getAlcoolRepository());
+
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_alcohol, container, false);
 
@@ -41,7 +52,7 @@ public class AlcoholFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         alcoholRecycler.setLayoutManager(layoutManager);
 
-        adapter = new AlcoholSummaryAdapter(alcoholList);
+        adapter = new AlcoholSummaryAdapter(null); //TODO pass real list
         alcoholRecycler.setAdapter(adapter);
 
 

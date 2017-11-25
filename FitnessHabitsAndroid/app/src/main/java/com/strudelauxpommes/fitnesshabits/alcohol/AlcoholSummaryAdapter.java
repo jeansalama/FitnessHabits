@@ -7,14 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.strudelauxpommes.fitnesshabits.R;
+import com.strudelauxpommes.fitnesshabits.data.model.DrinkData;
 
 import java.util.List;
 
 public class AlcoholSummaryAdapter extends RecyclerView.Adapter<AlcoholSummaryAdapter.ViewHolder> {
 
-    public List<Alcohol> alcoholList;
+    public List<DrinkData> alcoholList;
 
-    public AlcoholSummaryAdapter(List<Alcohol> alcoholList){ this.alcoholList = alcoholList;}
+    public AlcoholSummaryAdapter(List<DrinkData> alcoholList){ this.alcoholList = alcoholList;}
+
+    public void setAlcoholList(List<DrinkData> alcoholList){
+        this.alcoholList = alcoholList;
+    }
 
     @Override
     public AlcoholSummaryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -29,7 +34,7 @@ public class AlcoholSummaryAdapter extends RecyclerView.Adapter<AlcoholSummaryAd
     @Override
     public void onBindViewHolder(AlcoholSummaryAdapter.ViewHolder holder, int position) {
         //get data
-        Alcohol alcohol = alcoholList.get(position);
+        DrinkData alcohol = alcoholList.get(position);
 
         holder.alcoholName.setText("TOTO"); //TODO
 
