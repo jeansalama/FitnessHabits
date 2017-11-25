@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.strudelauxpommes.fitnesshabits.R;
 
@@ -18,6 +19,7 @@ public class AlcoholFragment extends Fragment {
     private RecyclerView alcoholRecycler;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
+    private TextView alcoholSummaryTitle;
     public AlcoholFragment() {
         // Required empty public constructor
     }
@@ -37,7 +39,19 @@ public class AlcoholFragment extends Fragment {
         adapter = new AlcoholSummaryAdapter();
         alcoholRecycler.setAdapter(adapter);
 
+
+        alcoholSummaryTitle = rootView.findViewById(R.id.alcohol_title);
+
+        alcoholSummaryTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO open Detailed Alcohol Activity
+            }
+        });
+
         return rootView;
     }
+
+
 
 }
