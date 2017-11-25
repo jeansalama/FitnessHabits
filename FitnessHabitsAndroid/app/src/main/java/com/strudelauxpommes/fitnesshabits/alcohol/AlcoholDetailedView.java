@@ -28,7 +28,7 @@ public class AlcoholDetailedView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alcohol_detailed);
-        getActionBar().setTitle("Alcohol");
+
         alcoholRecyclerView = (RecyclerView) findViewById(R.id.recycler);
         alcoholRecyclerView.setLayoutManager(alcoholLayoutManager);
 

@@ -1,6 +1,7 @@
 package com.strudelauxpommes.fitnesshabits.alcohol;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 
 import com.strudelauxpommes.fitnesshabits.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -20,6 +24,7 @@ public class AlcoholFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
     private TextView alcoholSummaryTitle;
+    List<Alcohol> alcoholList = new ArrayList<>(); //TODO GET ACTUAL LIST
     public AlcoholFragment() {
         // Required empty public constructor
     }
@@ -36,7 +41,7 @@ public class AlcoholFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         alcoholRecycler.setLayoutManager(layoutManager);
 
-        adapter = new AlcoholSummaryAdapter();
+        adapter = new AlcoholSummaryAdapter(alcoholList);
         alcoholRecycler.setAdapter(adapter);
 
 
@@ -46,6 +51,8 @@ public class AlcoholFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //TODO open Detailed Alcohol Activity
+                Intent openDetailed = new Intent(getActivity(), AlcoholDetailedView.class);
+                startActivity(openDetailed);
             }
         });
 
