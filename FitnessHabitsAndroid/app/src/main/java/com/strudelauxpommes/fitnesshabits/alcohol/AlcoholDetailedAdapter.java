@@ -77,7 +77,7 @@ public class AlcoholDetailedAdapter extends RecyclerView.Adapter<AlcoholDetailed
 
     @Override
     public int getItemCount() {
-        return 3; //TODO set actual value;
+        return alcoholsList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
